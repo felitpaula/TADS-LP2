@@ -4,10 +4,10 @@ public class Exemplar {
 
     private Long id;
     private String codigo;
-    private String livro;
+    private Livro livro;
     private EStatusExemplar status;
 
-    public Exemplar(String codigo, String livro) {
+        public Exemplar(String codigo, Livro livro) {
         this.codigo = codigo;
         this.livro = livro;
     }
@@ -28,11 +28,11 @@ public class Exemplar {
         this.codigo = codigo;
     }
 
-    public String getLivro() {
+    public Livro getLivro() {
         return livro;
     }
 
-    public void setLivro(String livro) {
+    public void setLivro(Livro livro) {
         this.livro = livro;
     }
 
