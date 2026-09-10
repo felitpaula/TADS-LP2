@@ -4,6 +4,7 @@ import br.edu.ifsp.biblioteca.domain.Usuario;
 import br.edu.ifsp.biblioteca.exception.RegraDeNegocioException;
 import br.edu.ifsp.biblioteca.repository.IUsuarioRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class UsuarioService{
@@ -21,7 +22,7 @@ public class UsuarioService{
         }
 
         if (usuario.getEmail() == null || usuario.getEmail().isEmpty()) {
-
+            throw new RegraDeNegocioException("Email é obrigatório");
         }
 
         this.validarEmail(usuario.getEmail());
@@ -49,5 +50,9 @@ public class UsuarioService{
                     "Já existe um usuário cadastrado com o e-mail: " + email
             );
         }
+    }
+
+    public List<Usuario> listarTodos() {
+        return this.usuarioRepository.listarTodos();
     }
 }
