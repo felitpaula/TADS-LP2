@@ -7,7 +7,7 @@ public class Exemplar {
     private Livro livro;
     private EStatusExemplar status;
 
-        public Exemplar(String codigo, Livro livro) {
+    public Exemplar(String codigo, Livro livro) {
         this.codigo = codigo;
         this.livro = livro;
     }
@@ -42,6 +42,24 @@ public class Exemplar {
 
     public void setStatus(EStatusExemplar status) {
         this.status = status;
+    }
+
+    public void emprestar() {
+
+            if (this.status == EStatusExemplar.EMPRESTADO) {
+                throw new IllegalStateException(
+                        "Exemplar " + this.codigo + " já está emprestado!!!"
+                );
+            }
+            this.status = EStatusExemplar.EMPRESTADO;
+    }
+
+    public void devolver() {
+        this.status = EStatusExemplar.DISPONIVEL;
+    }
+
+    public boolean estaDisponivel() {
+        return this.status == EStatusExemplar.DISPONIVEL;
     }
 
     @Override
