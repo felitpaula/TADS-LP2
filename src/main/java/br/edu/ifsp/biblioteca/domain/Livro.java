@@ -40,7 +40,7 @@ public class Livro {
     )
     private List<Autor> autores = new ArrayList<>();
 
-    public Livro() {};
+    public Livro() {}
 
     public Livro(String isbn, String titulo, Integer anoPublicacao) {
         this.isbn = isbn;
@@ -51,7 +51,7 @@ public class Livro {
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Long id) {
@@ -59,7 +59,7 @@ public class Livro {
     }
 
     public String getIsbn() {
-        return this.isbn;
+        return isbn;
     }
 
     public void setIsbn(String isbn) {
@@ -67,15 +67,15 @@ public class Livro {
     }
 
     public String getTitulo() {
-        return this.titulo;
+        return titulo;
     }
 
-    public void setTitutlo(String titutlo) {
+    public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
     public Integer getAnoPublicacao() {
-        return this.anoPublicacao;
+        return anoPublicacao;
     }
 
     public void setAnoPublicacao(Integer anoPublicacao) {
@@ -96,6 +96,19 @@ public class Livro {
 
     public List<Exemplar> getExemplares() {
         return this.listaDeExemplares;
+    }
+
+    public long quantidadeDisponivel() {
+
+        long disponiveis = 0;
+
+        for (Exemplar exemplar : this.getExemplares()) {
+            if (exemplar.estaDisponivel()) {
+                disponiveis += 1;
+            }
+        }
+
+        return disponiveis;
     }
 
     @Override

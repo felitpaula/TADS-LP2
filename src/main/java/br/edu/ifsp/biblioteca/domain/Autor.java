@@ -28,7 +28,7 @@ public class Autor {
     }
 
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) {
@@ -37,9 +37,6 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "Autor{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                '}';
+        return this.nome;
     }
 }
